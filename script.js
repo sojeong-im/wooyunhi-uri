@@ -56,7 +56,15 @@ async function submitForm(event, modalId) {
     const applicationData = Object.fromEntries(formData.entries());
     
     // Add timestamp
-    applicationData.submittedAt = firebase.firestore.FieldValue.serverTimestamp();
+    try {
+        if (typeof firebase !== 'undefined') {
+            applicationData.submittedAt = firebase.firestore.FieldValue.serverTimestamp();
+        } else {
+            applicationData.submittedAt = new Date().toISOString();
+        }
+    } catch (e) {
+        applicationData.submittedAt = new Date().toISOString();
+    }
     
     try {
         // Change submit button state to prevent double submission
