@@ -28,7 +28,7 @@
             
             <div class="button-group">
                 <button class="btn btn-primary" onclick="openModal('applyModal')">5기 신청하기 ღ</button>
-                <button class="btn btn-secondary" onclick="openModal('inquiryModal')">문의하기 💬</button>
+                <button class="btn btn-secondary" onclick="window.open('https://open.kakao.com/o/sFdHH3ci', '_blank')">문의하기 💬</button>
             </div>
             
             <div class="scroll-down">
@@ -149,30 +149,7 @@
         </div>
     </div>
 
-    <!-- 5. Inquiry Modal -->
-    <div id="inquiryModal" class="modal">
-        <div class="modal-content modal-small">
-            <span class="close-btn" onclick="closeModal('inquiryModal')">&times;</span>
-            <div class="scrapbook-tape top-center"></div>
-            <h3 class="modal-title">궁금한 거 있어? 💬</h3>
-            <p class="modal-desc">편하게 남겨줘! 확인하고 연락할게 :)</p>
-            <form id="inquiryForm" onsubmit="submitForm(event, 'inquiryModal')">
-                <div class="form-group">
-                    <label>이름</label>
-                    <input type="text" required placeholder="이름을 입력해주세요">
-                </div>
-                <div class="form-group">
-                    <label>연락처</label>
-                    <input type="tel" required placeholder="연락받으실 번호 (010-0000-0000)">
-                </div>
-                <div class="form-group">
-                    <label>문의 내용</label>
-                    <textarea required placeholder="궁금한 점을 자유롭게 적어주세요!" rows="5"></textarea>
-                </div>
-                <button type="submit" class="btn btn-secondary submit-btn">문의 남기기</button>
-            </form>
-        </div>
-    </div>
+
 
     <!-- Success Toast -->
     <div id="toast" class="toast">성공적으로 전송되었습니다!</div>
