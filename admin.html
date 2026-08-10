@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우연히 우리 - 관리자 페이지</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Password Overlay -->
+    <div id="passwordOverlay" class="modal show" style="display: block; background-color: var(--bg-cream);">
+        <div class="modal-content" style="margin-top: 20vh; text-align: center;">
+            <h3 class="modal-title">🔒 관리자 전용</h3>
+            <p class="modal-desc" style="margin-bottom: 20px;">접근을 위해 비밀번호를 입력해주세요.</p>
+            <form id="passwordForm">
+                <input type="password" id="adminPassword" required placeholder="비밀번호 4자리" style="text-align: center; font-size: 1.5rem; letter-spacing: 5px; margin-bottom: 20px;">
+                <button type="submit" class="btn btn-primary">입장하기</button>
+            </form>
+            <p id="passwordError" style="color: red; margin-top: 10px; display: none;">비밀번호가 틀렸습니다.</p>
+        </div>
+    </div>
+
+    <!-- Admin Content -->
+    <div id="adminContent" class="container" style="display: none; max-width: 1200px;">
+        <div class="section-card" style="margin-top: 30px;">
+            <div class="scrapbook-tape top-center"></div>
+            <h2 class="section-title">📂 우연히 우리 5기 지원자 목록</h2>
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>제출일시</th>
+                            <th>이름</th>
+                            <th>성별</th>
+                            <th>출생 연도</th>
+                            <th>현재 상태</th>
+                            <th>학교/직장</th>
+                            <th>거주/활동지역</th>
+                            <th>MBTI</th>
+                            <th>전화번호</th>
+                            <th>알게 된 경로</th>
+                            <th>기대되는 활동</th>
+                            <th>신청 이유</th>
+                            <th>하고 싶은 말</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicantTableBody">
+                        <!-- Data will be loaded here -->
+                        <tr><td colspan="13" style="text-align: center;">데이터를 불러오는 중입니다...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-secondary" onclick="location.href='index.html'" style="width: auto; padding: 10px 30px;">메인 페이지로 돌아가기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    
+    <script src="admin.js"></script>
+</body>
+</html>

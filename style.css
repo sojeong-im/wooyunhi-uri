@@ -502,3 +502,52 @@ input:focus, select:focus, textarea:focus {
         font-size: 2.5rem;
     }
 }
+
+/* Admin Page Styles */
+.admin-body {
+    background-color: var(--bg-cream);
+    background-image: none; /* No pattern for admin */
+}
+.table-responsive {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px; /* Force scroll on small screens */
+    font-size: 0.95rem;
+}
+.admin-table th, .admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+.admin-table th {
+    background-color: var(--accent-lavender);
+    color: #4A4A4A;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.admin-table tbody tr:hover {
+    background-color: #FDFBF7;
+}
+.scroll-cell {
+    max-width: 200px;
+    max-height: 80px;
+    overflow-y: auto;
+    word-break: keep-all;
+    padding-right: 5px;
+}
+/* Scrollbar styling for cells */
+.scroll-cell::-webkit-scrollbar {
+    width: 4px;
+}
+.scroll-cell::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
