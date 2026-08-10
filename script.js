@@ -92,7 +92,7 @@ async function submitForm(event, modalId) {
         
     } catch (error) {
         console.error("Error adding document: ", error);
-        alert("제출 중 오류가 발생했습니다. 다시 시도해주세요.");
+        alert("오류 발생: " + error.message + "\n(관리자에게 문의해주세요!)");
         
         const submitBtn = form.querySelector('button[type="submit"]');
         submitBtn.innerText = originalText;
