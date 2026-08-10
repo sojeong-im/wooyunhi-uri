@@ -1,3 +1,6 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 // Firebase Configuration
 const firebaseConfig = {
   apiKey: "AIzaSyChLxdS6RzKRg3z4LXBAKyxKQxQ1OJkA_E",
@@ -9,84 +12,70 @@ const firebaseConfig = {
   measurementId: "G-RT8Q2VMCE7"
 };
 
-// Initialize Firebase
-if (typeof firebase !== 'undefined') {
-    firebase.initializeApp(firebaseConfig);
-    var db = firebase.firestore();
-} else {
-    console.warn("Firebase SDK not loaded.");
+let db;
+try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+} catch (e) {
+    console.error("Firebase init error:", e);
 }
 
 // Modal Functions
-function openModal(modalId) {
+window.openModal = function(modalId) {
     const modal = document.getElementById(modalId);
     modal.style.display = 'block';
-    // Small delay to allow display:block to apply before adding opacity for transition
     setTimeout(() => {
         modal.classList.add('show');
     }, 10);
-    // Prevent background scrolling
     document.body.style.overflow = 'hidden';
 }
 
-function closeModal(modalId) {
+window.closeModal = function(modalId) {
     const modal = document.getElementById(modalId);
     modal.classList.remove('show');
     setTimeout(() => {
         modal.style.display = 'none';
-    }, 300); // match transition duration
-    // Restore background scrolling
+    }, 300);
     document.body.style.overflow = 'auto';
 }
 
-// Close modal when clicking outside of it
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
-        closeModal(event.target.id);
+        window.closeModal(event.target.id);
     }
 }
 
 // Form Submit Handling
-async function submitForm(event, modalId) {
-    event.preventDefault(); // Prevent page reload
+window.submitForm = async function(event, modalId) {
+    event.preventDefault();
     
-    // Get form data
     const form = event.target;
     const formData = new FormData(form);
     const applicationData = Object.fromEntries(formData.entries());
     
-    // Add timestamp
+    if (!db) {
+        alert("시스템 오류: 데이터베이스에 연결할 수 없습니다. (Adblock을 끄거나 새로고침 해주세요)");
+        return;
+    }
+    
     try {
-        if (typeof firebase !== 'undefined') {
-            applicationData.submittedAt = firebase.firestore.FieldValue.serverTimestamp();
-        } else {
-            applicationData.submittedAt = new Date().toISOString();
-        }
+        applicationData.submittedAt = serverTimestamp();
     } catch (e) {
         applicationData.submittedAt = new Date().toISOString();
     }
     
     try {
-        // Change submit button state to prevent double submission
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerText;
         submitBtn.innerText = '제출 중...';
         submitBtn.disabled = true;
 
-        if (typeof db !== 'undefined') {
-            // Save to Firestore
-            await db.collection("applications").add(applicationData);
-        } else {
-            console.error("Firestore is not initialized.");
-            alert("시스템 오류: 데이터베이스에 연결할 수 없습니다.");
-        }
+        await addDoc(collection(db, "applications"), applicationData);
 
-        // Success handling
-        closeModal(modalId);
+        window.closeModal(modalId);
         form.reset();
-        showToast();
+        window.showToast();
         
-        // Reset button
         submitBtn.innerText = originalText;
         submitBtn.disabled = false;
         
@@ -100,11 +89,10 @@ async function submitForm(event, modalId) {
     }
 }
 
-function showToast() {
+window.showToast = function() {
     const toast = document.getElementById('toast');
     toast.classList.add('show');
-    
     setTimeout(() => {
         toast.classList.remove('show');
-    }, 3000); // Hide after 3 seconds
+    }, 3000);
 }

@@ -80,7 +80,7 @@
             <form id="applyForm" onsubmit="submitForm(event, 'applyModal')">
                 <div class="form-group">
                     <label>1. 이름</label>
-                    <input type="text" required placeholder="이름을 입력해주세요">
+                    <input type="text" name="name" required placeholder="이름을 입력해주세요">
                 </div>
                 <div class="form-group">
                     <label>2. 성별</label>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="form-group">
                     <label>4. 현재 상태</label>
-                    <select required>
+                    <select name="status" required>
                         <option value="" disabled selected>선택해주세요</option>
                         <option value="대학생">대학생</option>
                         <option value="휴학생">휴학생</option>
@@ -117,35 +117,35 @@
                 </div>
                 <div class="form-group">
                     <label>5. 학교 / 직장</label>
-                    <input type="text" required placeholder="학교명 또는 직장명을 입력해주세요">
+                    <input type="text" name="school_company" required placeholder="학교명 또는 직장명을 입력해주세요">
                 </div>
                 <div class="form-group">
                     <label>6. 거주 또는 주 활동지역</label>
-                    <input type="text" required placeholder="예) 신촌, 강남, 마포구">
+                    <input type="text" name="region" required placeholder="예) 신촌, 강남, 마포구">
                 </div>
                 <div class="form-group">
                     <label>7. MBTI</label>
-                    <input type="text" required placeholder="예) ENFP">
+                    <input type="text" name="mbti" required placeholder="예) ENFP">
                 </div>
                 <div class="form-group">
                     <label>8. 연락 가능한 전화번호</label>
-                    <input type="tel" required placeholder="010-0000-0000">
+                    <input type="tel" name="phone" required placeholder="010-0000-0000">
                 </div>
                 <div class="form-group">
                     <label>9. 우연히 우리를 알게 된 경로</label>
-                    <input type="text" required placeholder="예) 에브리타임, 지인 추천">
+                    <input type="text" name="channel" required placeholder="예) 에브리타임, 지인 추천">
                 </div>
                 <div class="form-group">
                     <label>10. 가장 기대되는 활동</label>
-                    <textarea required placeholder="어떤 활동을 가장 하고 싶으신가요?" rows="3"></textarea>
+                    <textarea name="expected_activity" required placeholder="어떤 활동을 가장 하고 싶으신가요?" rows="3"></textarea>
                 </div>
                 <div class="form-group">
                     <label>11. 신청하게 된 이유</label>
-                    <textarea required placeholder="우리 모임에 신청하게 된 이유를 편하게 적어주세요!" rows="4"></textarea>
+                    <textarea name="reason" required placeholder="우리 모임에 신청하게 된 이유를 편하게 적어주세요!" rows="4"></textarea>
                 </div>
                 <div class="form-group">
                     <label>12. 마지막으로 하고 싶은 말 (선택)</label>
-                    <textarea placeholder="자유롭게 남겨주세요 :)" rows="2"></textarea>
+                    <textarea name="comments" placeholder="자유롭게 남겨주세요 :)" rows="2"></textarea>
                 </div>
 
 
@@ -159,6 +159,6 @@
     <!-- Success Toast -->
     <div id="toast" class="toast">성공적으로 전송되었습니다!</div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
