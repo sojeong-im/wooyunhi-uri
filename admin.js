@@ -23,7 +23,7 @@ document.getElementById('passwordForm').addEventListener('submit', function(e) {
     const enteredPassword = document.getElementById('adminPassword').value;
     
     // The simple password set by agreement
-    if (enteredPassword === '1004') {
+    if (enteredPassword === '00347') {
         document.getElementById('passwordOverlay').style.display = 'none';
         document.getElementById('adminContent').style.display = 'block';
         loadApplications();
