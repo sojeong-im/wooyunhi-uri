@@ -17,16 +17,28 @@
 
 body {
     background-color: var(--bg-cream);
-    /* Subtle grid pattern for diary look */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-    background-size: 20px 20px;
     color: var(--text-main);
     font-family: 'Gowun Dodum', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('poster.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15; /* 투명도를 조절해서 글씨가 잘 보이게 함 */
+    z-index: -1;
+    pointer-events: none;
 }
 
 h1, h2, h3, .badge, .btn {
