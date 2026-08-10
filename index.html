@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우연히 우리 - 5기 모집</title>
+    <meta name="description" content="같이 놀고, 같이 공부하고, 자연스럽게 친구가 되는 20대 모임 우연히 우리 5기 모집">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="deco-star deco1">✨</div>
+    <div class="deco-heart deco2">💕</div>
+    <div class="deco-star deco3">🌟</div>
+    <div class="deco-heart deco4">💖</div>
+
+    <div class="container">
+        <!-- 1. Hero Section -->
+        <section class="hero">
+            <div class="scrapbook-tape top-center"></div>
+            <div class="badge">⁂ 우연히 우리 5기 모집 ⁂</div>
+            <h1 class="main-title">우연히 우리</h1>
+            <p class="subtitle">같이 놀고, 같이 공부하고,<br>자연스럽게 친구가 되는 20대 모임 ღ</p>
+            <p class="small-text">각잡힌 동아리는 부담되고<br>혼자는 조금 외롭다면, 여기로!</p>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="openModal('applyModal')">5기 신청하기 ღ</button>
+                <button class="btn btn-secondary" onclick="openModal('inquiryModal')">문의하기 💬</button>
+            </div>
+            
+            <div class="scroll-down">
+                <p>↓ 우리 조금 더 알아보기</p>
+            </div>
+        </section>
+
+        <!-- 2. About Us Section -->
+        <section class="about section-card">
+            <div class="scrapbook-tape top-left"></div>
+            <div class="scrapbook-tape bottom-right"></div>
+            <h2 class="section-title">이런 모임이야!</h2>
+            <p class="about-desc">
+                처음엔 조금 어색해도 괜찮아.<br>
+                밥 먹고, 놀고, 공부하다 보면<br>
+                어느새 편하게 연락하는 사이가 되는 곳 :)
+            </p>
+            <ul class="checklist">
+                <li><span class="check-icon">✔</span> 20대 초중반</li>
+                <li><span class="check-icon">✔</span> 서울에서 활동</li>
+                <li><span class="check-icon">✔</span> 2주에 한 번</li>
+                <li><span class="check-icon">✔</span> 모든 활동 자율참여</li>
+            </ul>
+        </section>
+
+        <!-- 3. Activities Section -->
+        <section class="activities section-card">
+            <div class="scrapbook-tape top-right"></div>
+            <h2 class="section-title">뭐하고 놀아?</h2>
+            <div class="activity-grid">
+                <div class="activity-card"><span class="emoji">🍚</span>대야 비빔밥</div>
+                <div class="activity-card"><span class="emoji">☕</span>카페투어</div>
+                <div class="activity-card"><span class="emoji">🔐</span>방탈출</div>
+                <div class="activity-card"><span class="emoji">🎬</span>심야영화</div>
+                <div class="activity-card"><span class="emoji">🫧</span>공방</div>
+                <div class="activity-card"><span class="emoji">🎉</span>파티룸</div>
+                <div class="activity-card"><span class="emoji">🌊</span>여름 MT</div>
+                <div class="activity-card"><span class="emoji">🎢</span>롯데월드</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 4. Apply Modal -->
+    <div id="applyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('applyModal')">&times;</span>
+            <div class="scrapbook-tape top-center"></div>
+            <h3 class="modal-title">우리 조금만 알아가볼까? ☽</h3>
+            <form id="applyForm" onsubmit="submitForm(event, 'applyModal')">
+                <div class="form-group">
+                    <label>1. 이름</label>
+                    <input type="text" required placeholder="이름을 입력해주세요">
+                </div>
+                <div class="form-group">
+                    <label>2. 성별</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="gender" value="남" required> 남</label>
+                        <label><input type="radio" name="gender" value="여"> 여</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>3. 나이</label>
+                    <input type="number" required placeholder="예) 23">
+                </div>
+                <div class="form-group">
+                    <label>4. 현재 상태</label>
+                    <select required>
+                        <option value="" disabled selected>선택해주세요</option>
+                        <option value="대학생">대학생</option>
+                        <option value="휴학생">휴학생</option>
+                        <option value="취업준비생">취업준비생</option>
+                        <option value="직장인">직장인</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>5. 학교 / 직장</label>
+                    <input type="text" required placeholder="학교명 또는 직장명을 입력해주세요">
+                </div>
+                <div class="form-group">
+                    <label>6. 거주 또는 주 활동지역</label>
+                    <input type="text" required placeholder="예) 신촌, 강남, 마포구">
+                </div>
+                <div class="form-group">
+                    <label>7. MBTI</label>
+                    <input type="text" required placeholder="예) ENFP">
+                </div>
+                <div class="form-group">
+                    <label>8. 연락 가능한 전화번호</label>
+                    <input type="tel" required placeholder="010-0000-0000">
+                </div>
+                <div class="form-group">
+                    <label>9. 우연히 우리를 알게 된 경로</label>
+                    <input type="text" required placeholder="예) 에브리타임, 지인 추천">
+                </div>
+                <div class="form-group">
+                    <label>10. 가장 기대되는 활동</label>
+                    <textarea required placeholder="어떤 활동을 가장 하고 싶으신가요?" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>11. 신청하게 된 이유</label>
+                    <textarea required placeholder="우리 모임에 신청하게 된 이유를 편하게 적어주세요!" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>12. 마지막으로 하고 싶은 말 (선택)</label>
+                    <textarea placeholder="자유롭게 남겨주세요 :)" rows="2"></textarea>
+                </div>
+                
+                <div class="privacy-check">
+                    <label>
+                        <input type="checkbox" required>
+                        개인정보 수집 및 이용에 동의합니다.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary submit-btn">우연히 우리 만나러 가기 ღ</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 5. Inquiry Modal -->
+    <div id="inquiryModal" class="modal">
+        <div class="modal-content modal-small">
+            <span class="close-btn" onclick="closeModal('inquiryModal')">&times;</span>
+            <div class="scrapbook-tape top-center"></div>
+            <h3 class="modal-title">궁금한 거 있어? 💬</h3>
+            <p class="modal-desc">편하게 남겨줘! 확인하고 연락할게 :)</p>
+            <form id="inquiryForm" onsubmit="submitForm(event, 'inquiryModal')">
+                <div class="form-group">
+                    <label>이름</label>
+                    <input type="text" required placeholder="이름을 입력해주세요">
+                </div>
+                <div class="form-group">
+                    <label>연락처</label>
+                    <input type="tel" required placeholder="연락받으실 번호 (010-0000-0000)">
+                </div>
+                <div class="form-group">
+                    <label>문의 내용</label>
+                    <textarea required placeholder="궁금한 점을 자유롭게 적어주세요!" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary submit-btn">문의 남기기</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="toast" class="toast">성공적으로 전송되었습니다!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
